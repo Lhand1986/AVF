@@ -1,0 +1,39 @@
+Data on the internet
+API = Application Programming Interface
+The interface that mobile applications use to subvert the web itself.
+
+HISTORY OF COMPUTERS!!!!
+
+HTTP, URLs, and URIs
+
+https://www.google.com
+
+hyper-text transfer protocol (secure)
+
+Transferring text that contains links to other text
+
+http transfers html, Hupertext Markup Language
+
+Language is based on the idea of "documents"
+
+Technically, every webpage is a document.
+
+URL: Universal resource locator
+
+A specific character string that constitutes a reference to a resource
+AKA web address
+
+Sometimes referred to as a URI
+
+URI is universal resource identifier
+
+A string of characters used to identify the name of a website
+
+REST = Representational state transfer
+
+URL endpoint gives you an accurate representation of which data within the application is being accessed.
+
+URL gives direct information as to what you are accessing
+
+REST is very popular for setting up APIs
+

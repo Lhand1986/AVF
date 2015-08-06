@@ -1,0 +1,80 @@
+Remote data
+
+Powers many of the most popular mobile applications
+
+AJAX and XHR
+
+XHR: XMLHttpResponse
+
+AJAX: Asynchronous JavaScript and XHR
+
+Use Titanium's HTTPClient module to pull data from a remote API
+
+var xhr = Ti.Network.createHTTPClient
+	onload = function()
+	onError = function()
+
+etc
+
+Ti.API.debug(this.stuff)
+
+xhr.open("GET", "URL");
+xhr.send();
+
+
+Ti.Network.
+(properties)
+NETWORK_LAN
+NETWORK_MOBILE
+NETWORK_NONE
+NETWORK_UNKNOWN
+NETWORK_WIFI
+networkType
+online //needed to check for connectivity
+
+(methods)
+addEventListener()
+createHTTPClient() //Necessary to access remote data
+fireEvent()
+getNetworkType()
+getOnline()
+removeEventListener()
+
+Only has one event: change
+Listens for a network change. The more testing for "change" the more taxing on the battery.
+
+HTTPClient will retrieve and/or send data from remote servers
+
+handles a connection with a remote URL to allow data retrieval and manipulation
+
+Methods:
+.open()
+.send()
+
+Properties
+
+.responseText
+.onload
+.onerror
+.statusText *
+.timeout
+
+* Only property not necessary for handling the data and the request itself
+
+
+
+EXAMPLE CODE:
+var url = "http://dev.markitondemand.com/Api/v2/Lookup/json?input=NFLX";
+var xhr = Ti.Network.createHTTPClient({
+	onload: function(evt) {
+		Ti.API.info("Stock INfo received: " + this.responseText);
+	},
+	onerror: function(evt) {
+		Ti.API.debug("Error: " + evt.error);
+	},
+	timeout: 5000 // in milliseconds
+});
+
+xhr.open("GET", url);
+xhr.send();
+

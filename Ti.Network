@@ -1,0 +1,38 @@
+Ti.Network
+
+example
+
+var url = "http://api.wunderground.com/api/..../forecast/";
+if (Ti.Network.online) {
+	var getData = Ti.Network.createHTTPClient();
+	getData.onload = function(e) {
+		console.log(e); //this is the raw data-string returned from the URL request
+		var json = JSON.parse(this.responseText); //convert the string to JS object notation
+		var forecast = json.forecast;
+		var location = json.location;
+		var ui = require("ui");
+		ui.buildUI(forecast, location);
+	}; //getData.onload closing
+	getData.open("GET", url);
+	getData.send();
+} else {
+	alert("Network currently unavailable.");
+	//load locally stored data perhaps?
+}; // if else Ti.Network closing
+
+
+Ti.Network.online
+
+Ti.Network.createHTTPClient
+
+onload (if the httpclient is successful)
+
+onerror (if an error occurs)
+
+open (Takes three parameters, get, or post, the url for the request, optional asonchronous boolean option (default, true))
+
+send (sends the request)
+
+Ti.Network.addEventListener
+
+change
