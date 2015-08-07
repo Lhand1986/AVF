@@ -14,15 +14,6 @@ if(osname === "android"){
 
 
 
-function currentLocation(){
-	Titanium.Geolocation.getCurrentPosition(function(e){
-		var lat = e.coords.latitude;
-		var lng = e.coords.longitude;
-	});
-};
-
-
-
 var runGeo = function(){
 	if (Ti.Network.online == true) {
 	Ti.Geolocation.purpose = "Location is needed in order to get your weather.";
