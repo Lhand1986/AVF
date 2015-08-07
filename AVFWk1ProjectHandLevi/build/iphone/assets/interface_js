@@ -1,1 +1,1 @@
-/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/Resources/interface.js
+var lblFormat={color:"#000",borderColor:"#fff",font:{fontSize:23,fontFamily:"Helvetica"},top:30,left:30},bldInt=function(e){var o=Ti.UI.createLabel(lblFormat);o.text=e,o.right=30,mainWin.add(o)},bldHead=function(e){var o=Ti.UI.createLabel(lblFormat);o.text=e,o.left=30,o.font={fontSize:23,fontFamily:"Arial",fontWeight:"Bold"},mainWin.add(o)};exports.buildUI=bldInt,exports.buildHead=bldHead,Ti.Network.online?setTimeout(function(){loadLocation.runGeoCode()},600):alert("Network currently unavailable");

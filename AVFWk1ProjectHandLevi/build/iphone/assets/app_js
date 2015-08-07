@@ -1,1 +1,1 @@
-/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/Resources/app.js
+var mainWin=Ti.UI.createWindow({backgroundColor:"#f1f3f4",layout:"vertical"}),loadLocation=require("location"),loadInterface=require("interface");mainWin.open();
