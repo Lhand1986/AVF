@@ -64,6 +64,7 @@ var runGeo = function(){
 		};
 	});
 };
+
 /*Ti.Geolocation.addEventListener("location", function(){
 	runGeo();
 });*/

@@ -1,6 +1,6 @@
 var mainWin = Ti.UI.createWindow({
 	backgroundColor: "#f1f3f4",
-	layout: "horizontal"
+	layout: "vertical"
 });
 
 /*var label1 = Ti.UI.createLabel(lblFormat);
