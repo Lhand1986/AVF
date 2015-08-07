@@ -1,1 +1,0 @@
-/Users/Lhand/Desktop/Classes/AVF/HandLeviAVFGTT/Resources/app.js

@@ -21,7 +21,7 @@
 	"fullscreen": false,
 	"skipJSMinification": true,
 	"mergeCustomAndroidManifest": false,
-	"encryptJS": true,
+	"encryptJS": false,
 	"minSDK": 14,
 	"targetSDK": 22,
 	"propertiesHash": "cdd969e675ff3b46653690766537c02a",

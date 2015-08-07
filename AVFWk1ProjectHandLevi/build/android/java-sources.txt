@@ -1,0 +1,7 @@
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/android/support/v7/appcompat/R.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/com/HandLevi/AVFWk1Project/ApplicationStylesheet.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/com/HandLevi/AVFWk1Project/Avfwk1projecthandlevi1508Activity.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/com/HandLevi/AVFWk1Project/Avfwk1projecthandlevi1508AppInfo.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/com/HandLevi/AVFWk1Project/Avfwk1projecthandlevi1508Application.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/com/HandLevi/AVFWk1Project/R.java"
+"/Users/Lhand/Desktop/Classes/AVF/AVFWk1ProjectHandLevi/build/android/gen/ti/modules/titanium/ui/R.java"
