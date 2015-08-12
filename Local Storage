@@ -1,0 +1,154 @@
+Local Storage
+
+Refers to data stored locally to the phone.
+
+Userful for online and offline apps
+
+Can be used to save settings, user settings, high scores, checklists, etc
+
+Titanium allows for 2 types of local storage.
+
+Properties API: stores a JSON object locally. Useful for small data like user settings.
+
+SQLite: Used by both Android and iOS. Creates a database for more complex data.
+
+Configuration for less than 20 objects = Properties API
+
+NEVER store large chunks of data "blobs". This slows down the application a BUNCH.
+
+SQLite is used in mobile world.
+
+Data is stored in a table, individual fields are stored in a column, and entries are in a row.
+
+Properties API is not a relational database. It is a no-sql database. Similar to MongoDB.
+
+Do not store images in SQLite.
+
+
+To start a database:
+var db = Titanium.Database.Open ('dbName');
+
+Second thing to do:
+db.execute(...)
+
+In ellipsis:
+'CREATE TABLE IF NOT EXISTS tablename (id INTEGER PRIMARY KEY, columnname DATATYPE, columnname2 DATATYPE)'
+
+Datatypes:
+	Text
+	Integer
+	REAL - Floating point value
+	Blob: Value of a blob of data, stored exactly as it was input. Avoid this.
+
+For bool: integer (1 or 0)
+Timestamp: text value
+
+Adding rows using SQLite (CREATE)
+INSERT INTO tablename (column1, column2, column3,...)
+
+VALUES (value1, value2, value3,...)
+
+Parameterization sanitizes SQLite inserts so people can't execute malicious commands.
+
+Example:
+db.execute('INSERT INTO tname (c1,c2) VALUES (?,?)', 'value', 1);
+
+? are replaced with values passed in as parameters to the .execute() method.
+
+Updating rows (edit)
+
+UPDATE tablename
+SET column1=value1, column2 = value2,...
+WHERE id=id
+
+Parameterization ex:
+
+db.execute('UPDATE tname SET c1=?,c2=? WHERE id=?','value1',value2','value3')
+
+Deleting:
+
+DELETE FROM tablename
+WHERE id = id
+
+Parameterization ex:
+
+db.execute('DELETE FROM tname WHERE id=?', 1)
+
+READ table:
+
+SELECT column1,column2,column3 FROM tablename
+
+SELECT * FROM tablename
+
+example:
+
+db.execute('SELECT * FROM users');
+
+
+SQL vs NoSQL:
+
+Choice of data structure based on project needs and/or personal preference.
+
+SQL database looks like an excel spreadsheet.
+
+NoSQL typicallyl use key.value pairs or property/value pairs. Example: Ti.App.Properties
+
+Ti.App.Properties.setString('keyName', 'value');
+var retrieve = Ti.App.Properties.getString('keyName');
+
+Value can be anything, a simple string or a stringified JSON object.
+
+
+var db = Ti.Database.open('nameInfo');
+db.execute('CREATE TABLE IF NOT EXISTS asdTbl (id INTEGER PRIMARY KEY, name TEXT, desc TEXT)');
+db.execute('INSERT INTO asdTbl (name, desc) VALUES (?,?)', VARIABLE1, VARIABLE2);
+//inserts a new row into database, storing the values for each column
+db.close();
+
+var create = function(name, desc) {
+	var db = Ti.Database.open('nameInfo');
+	db.execute('CREATE TABLE IF NOT EXISTS asdTbld (id INTEGER PRIMARY KEY, name TEXT, desc TEXT)');
+	db.execute('INSERT INTO asdTbl (name, desc) VALUES (?, ?)', name, desc);
+	var rowID = db.lastInsertRowId;
+	db.close();
+	tblData = [];
+	ui.tabGroup.setActiveTab(ui.tab1);
+};
+exports.create = create;
+
+
+READ FUNCTION
+
+
+
+var tblData = [];
+var read = function(){
+	var db = Ti.Database.open('nameInfo');
+	db.execute('CREATE TABLE IF NOT EXISTS asdTbl (id INTEGER PRIMARY KEY, name TEXT, desc TEXT)');
+	var dbRows = db.execute('SELECT id, name, desc FROM asdTbl');
+	while (dbRows.isValidRow()) { //.isValidRow() returns BOOLEAN
+		tblData.push({
+			id: dbRows.fieldByName('id'),
+			name: dbRows.fieldByName('name'),
+			desc: dbRows.fieldByName('desc')
+		});
+		dbRows.next();
+	}	//while
+	dbRows.close(); //closes ResultSet, can no longer be used and is released from memory
+	db.close() // closes DB, instance can no longer be used and is released from memory
+	//next ? do whatever you want - maybe pass the tblData array intoa  Ui function, something like
+	// ui.peopleTbl(tblData);
+}; // read
+exports.read = read;
+
+
+
+UPDATE - can only update one entry at a time
+
+
+
+var db = Ti.Database.open('nameInfo');
+db.execute('UPDATE asdTbl SET name=?, desc=? WHERE id=?', ui.formField1.value, ui.formField2.value, ui.button.id);
+// updates EACH COLUMN in the database's table using values from form fields where the ID in the form matches the iD of the database row to update
+db.close();
+

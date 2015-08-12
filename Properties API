@@ -1,0 +1,10 @@
+Properties API
+Needs to have properties parsed as a JSON object.
+//Set Data
+Ti.App.Properties.setString(key, value);
+Ti.App.Properties.setString('userData', JSON.Stringify(obj));
+
+//Retrieve data
+Ti.App.Properties.getString(key);
+var User = JSON.parse(Ti.App.Properties.getString('userData'));
+
