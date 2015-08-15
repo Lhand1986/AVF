@@ -1,15 +1,5 @@
-//LOAD UI ELEMENTS FROM INTERNAL STORAGE PRIOR TO LOADING FUNCTION
-//Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
-
-//ERROR CHECKING
-/*if (typeof Ti.App.Properties.getString("weatherJSON") === "undefined") {
-	Ti.API.info("Error Here");
-} else {
-	Ti.API.info("It exists");
-};
-*/
 var runWeather = function(e){
-	if (typeof Ti.App.Properties.getString("weatherJSON") != "undefined") {
+	if (typeof Ti.App.Properties.getString("weatherJSON") != "null") {
 		var json = JSON.parse(Ti.App.Properties.getString("weatherJSON"));
 		var forecast = json.forecast;
 		var location = json.location;
@@ -31,6 +21,7 @@ var runWeather = function(e){
 		time.text = observation.local_time_rfc822;
 	} else {
 		alert("No weather data exists in Application cache. Please try again.");
+		Ti.API.info("Failure!!!!");
 	}
 };
 
@@ -124,4 +115,6 @@ mainWin.add(frCst1Txt);
 mainWin.add(frCst2);
 mainWin.add(frCst2Txt);
 mainWin.add(time);
+runWeather();
 exports.rnWthr = runWeather;
+
