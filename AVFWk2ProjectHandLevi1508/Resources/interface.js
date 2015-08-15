@@ -1,3 +1,5 @@
+//LOAD UI ELEMENTS FROM INTERNAL STORAGE PRIOR TO LOADING FUNCTION
+/*
 var lblFormat = {
 	color: "#000",
 	borderColor: "#fff",
@@ -23,7 +25,7 @@ var bldHead = function(e){
 exports.buildUI = bldInt;
 exports.buildHead = bldHead;
 
-
+//CHECK FOR INTERNET BEFORE LOADING THE FUNCTION. If there is no internet, load the previous dataset.
 setTimeout(function(){
 	loadLocation.runGeoCode();
-}, 600);
+}, 600);*/

@@ -1,5 +1,11 @@
 var osname = Ti.Platform.osname;
+var online = Ti.Network.online;
+var location = Ti.Geolocation.locationServicesEnabled;
 
+Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
+
+/*
+Ti.API.info(Ti.App.Properties.getstring("weatherJSON"));
 
 if(osname === "android"){
 	Ti.Geolocation.Android.manualMode = true;
@@ -12,17 +18,74 @@ if(osname === "android"){
 	Ti.Geolocation.Android.addLocationProvider(gpsProvider);
 };
 
+console.log(osname, online, location);
 
+var latLng = function(call){
+	Ti.Geolocation.getCurrentPosition(function(e) {
+		if (e.success) {
+			Ti.API.info("Cords latitude" + e.coords.latitude);
+			Ti.API.info("Cords longitude" + e.coords.longitude);
+			call(e.coords.latitude, e.coords.longitude);
+		} else {
+			console.log("Doesn't work");
+		}
+	});
+};
 
-var runGeo = function(){
-	if (Ti.Network.online == true) {
-	Ti.Geolocation.purpose = "Location is needed in order to get your weather.";
+latLng(function(latitude, longitude) {
+	var lat = latitude;
+	var lng = longitude;
+});
+
+//var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/" + lat + "," + lng + ".json";
+var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/37.78583526611328,-122.40641784667969.json";
+var getData = Ti.Network.createHTTPClient();
+
+getData.onload = function(e) {
+	Ti.App.Properties.setString("weatherJSON", this.responseText);
+	//var retrieve = Ti.App.Properties.getString("weatherJSON");
+	//Ti.API.info(JSON.parse(retrieve));
+};
+getData.open("GET", url);
+getData.send();
+/*
+if(online === true && location === true) {
 	Ti.Geolocation.getCurrentPosition(function(e){
 		var lat = e.coords.latitude;
 		var lng = e.coords.longitude;
 		var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/" + lat + "," + lng + ".json";
 		var getData = Ti.Network.createHTTPClient();
 		getData.onload = function(e){
+			//PUSH DATA TO INTERNAL STORAGE AND UPDATE INTERNAL/EXTERNAL STORAGE
+			json = JSON.parse(this.responseText);
+		};
+		getData.open("GET", url);
+		getData.send();
+		console.log(json);
+	});
+	} else {
+		console.log("you're totally offline!!!");
+};
+/*
+
+//CHANGE OUT FUNCTION TO JUST LOAD THE API INTO STORAGE.
+//CREATE NEW FUNCTION TO CALL DATA FROM STORAGE AFTER LOAD.
+
+var runGeo = function(){
+	//REMOVE GEO CALLS FROM THIS FUNCTION.
+	if (Ti.Network.online == true) {
+	Ti.Geolocation.purpose = "Location is needed in order to get your weather.";
+	Ti.Geolocation.getCurrentPosition(function(e){
+		
+		//PROJECT TWO insert a static latitude and longitude if the OS is android here
+		
+		
+		var lat = e.coords.latitude;
+		var lng = e.coords.longitude;
+		var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/" + lat + "," + lng + ".json";
+		var getData = Ti.Network.createHTTPClient();
+		getData.onload = function(e){
+			//PUSH DATA TO INTERNAL STORAGE AND UPDATE INTERNAL/EXTERNAL STORAGE
 			var json = JSON.parse(this.responseText);
 			var forecast = json.forecast;
 			var location = json.location;
@@ -58,4 +121,4 @@ var runGeo = function(){
 };
 
 
-exports.runGeoCode = runGeo;
+exports.runGeoCode = runGeo;*/
