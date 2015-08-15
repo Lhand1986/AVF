@@ -1,29 +1,3 @@
-var runWeather = function(e){
-	if (Ti.App.Properties.getString("weatherJSON") != null) {
-		var json = JSON.parse(Ti.App.Properties.getString("weatherJSON"));
-		var forecast = json.forecast;
-		var location = json.location;
-		var observation = json.current_observation;
-		locationCity.text = location.city;
-		locationZip.text = "Zip Code: " + location.zip;
-		elevation.text = "Elevation: " + observation.display_location.elevation;
-		weather.text = "Weather: " + observation.weather;
-		humidity.text = "Humidity: " + observation.relative_humidity;
-		windDir.text = "Wind Direction: " + observation.wind_dir;
-		windMph.text = "MPH: " + observation.wind_mph;
-		windKph.text = "KPH: " + observation.wind_kph;
-		crtTmp.text = "Current Temperature: " + observation.temperature_string;
-		flsLk.text = "Feels Like: " + observation.feelslike_string;
-		frCst1.text = forecast.txt_forecast.forecastday[0].title + " Forecast";
-		frCst1Txt.text = forecast.txt_forecast.forecastday[0].fcttext;
-		frCst2.text = forecast.txt_forecast.forecastday[1].title + " Forecast";
-		frCst2Txt.text = forecast.txt_forecast.forecastday[1].fcttext;
-		time.text = observation.local_time_rfc822;
-	} else {
-		alert("No weather data exists in Application cache. If error persists, check your network settings and wait a moment before trying again.");
-	}
-};
-
 var lblFormat = {
 	color: "#000",
 	font: {fontSize:16, fontFamily: "Helvetica"},
@@ -97,6 +71,31 @@ var time = Ti.UI.createLabel(lblFormat);
 time.bottom = 20;
 time.text = "Last Time Accessed Was Fri, 00 JAN 0000 00:00:00 -0000";
 
+var runWeather = function(e){
+	if (Ti.App.Properties.getString("weatherJSON") != null) {
+		var json = JSON.parse(Ti.App.Properties.getString("weatherJSON"));
+		var forecast = json.forecast;
+		var location = json.location;
+		var observation = json.current_observation;
+		locationCity.text = location.city;
+		locationZip.text = "Zip Code: " + location.zip;
+		elevation.text = "Elevation: " + observation.display_location.elevation;
+		weather.text = "Weather: " + observation.weather;
+		humidity.text = "Humidity: " + observation.relative_humidity;
+		windDir.text = "Wind Direction: " + observation.wind_dir;
+		windMph.text = "MPH: " + observation.wind_mph;
+		windKph.text = "KPH: " + observation.wind_kph;
+		crtTmp.text = "Current Temperature: " + observation.temperature_string;
+		flsLk.text = "Feels Like: " + observation.feelslike_string;
+		frCst1.text = forecast.txt_forecast.forecastday[0].title + " Forecast";
+		frCst1Txt.text = forecast.txt_forecast.forecastday[0].fcttext;
+		frCst2.text = forecast.txt_forecast.forecastday[1].title + " Forecast";
+		frCst2Txt.text = forecast.txt_forecast.forecastday[1].fcttext;
+		time.text = observation.local_time_rfc822;
+	} else {
+		alert("No weather data exists in Application cache. If error persists, check your network settings and wait a moment before trying again.");
+	}
+};
 
 //Need to be individual for Android setup
 mainWin.add(locationCity);
