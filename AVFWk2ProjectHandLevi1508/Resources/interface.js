@@ -1,4 +1,37 @@
 //LOAD UI ELEMENTS FROM INTERNAL STORAGE PRIOR TO LOADING FUNCTION
+//Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
+
+//ERROR CHECKING
+if (typeof Ti.App.Properties.getString("weatherJSON") === "undefined") {
+	Ti.API.info("Error Here");
+} else {
+	Ti.API.info("It exists");
+}
+
+var runWeather = function(e){
+	var json = JSON.parse(Ti.App.Properties.getString("weatherJSON"));
+	var forecast = json.forecast;
+	var location = json.location;
+	var observation = json.current_observation;
+	//Ti.API.info(forecast);
+	//Ti.API.info(location);
+	Ti.API.info(observation);
+	locationCity.text = location.city;
+	locationZip.text = location.zip;
+	elevation.text = observation.display_location.elevation;
+	weather.text = observation.weather;
+	humidity.text = observation.relative_humidity;
+	windDir.text = observation.wind_dir;
+	windMph.text = observation.wind_mph;
+	windKph.text = observation.wind_kph;
+	crtTmp.text = observation.temperature_string;
+	flsLk.text = observation.feelslike_string;
+	frCst1.text = forecast.txt_forecast.forecastday[0].title;
+	frCst1Txt.text = forecast.txt_forecast.forecastday[0].fcttext;
+	frCst2.text = forecast.txt_forecast.forecastday[1].title;
+	frCst2Txt.text = forecast.txt_forecast.forecastday[1].fcttext;
+	time.text = observation.local_time_rfc822;
+};
 
 var lblFormat = {
 	color: "#000",
@@ -63,13 +96,11 @@ frCst1Txt.top = frCst1.top + ftSz + 15;
 frCst1Txt.text = "Forecast 1 Text";
 
 var frCst2 = Ti.UI.createLabel(lblFormat);
-frCst2.top = frCst1.top;
-frCst2.left = "40%";
+frCst2.top = frCst1Txt.top + ftSz + 30;
 frCst2.text = "Forecast 2 Title";
 
 var frCst2Txt = Ti.UI.createLabel(lblFormat);
-frCst2Txt.top = frCst1Txt.top;
-frCst2Txt.left = frCst2.left;
+frCst2Txt.top = frCst2.top + ftSz + 15;
 frCst2Txt.text = "Forecast 2 Text";
 
 var time = Ti.UI.createLabel(lblFormat);
@@ -100,3 +131,4 @@ setTimeout(function(){
 }, 600);*/
 
 mainWin.add(locationCity, locationZip, elevation, weather, humidity, windDir, windMph, windKph, crtTmp, flsLk, frCst1, frCst1Txt, frCst2, frCst2Txt, time);
+exports.rnWthr = runWeather();

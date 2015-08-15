@@ -29,7 +29,7 @@ var read = function(){
 	db.close();
 };
 */
-Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
+//Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
 
 if(osname === "android"){
 	Ti.Geolocation.Android.manualMode = true;
