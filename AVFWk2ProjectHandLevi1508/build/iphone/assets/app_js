@@ -1,0 +1,1 @@
+var mainWin=Ti.UI.createWindow({backgroundColor:"#f1f3f4"}),loadInterface=require("interface"),loadLocation=require("location");mainWin.open();

@@ -1,27 +1,26 @@
 var runWeather = function(e){
-	if (typeof Ti.App.Properties.getString("weatherJSON") != "null") {
+	if (Ti.App.Properties.getString("weatherJSON") != null) {
 		var json = JSON.parse(Ti.App.Properties.getString("weatherJSON"));
 		var forecast = json.forecast;
 		var location = json.location;
 		var observation = json.current_observation;
 		locationCity.text = location.city;
-		locationZip.text = location.zip;
-		elevation.text = observation.display_location.elevation;
-		weather.text = observation.weather;
-		humidity.text = observation.relative_humidity;
-		windDir.text = observation.wind_dir;
-		windMph.text = observation.wind_mph;
-		windKph.text = observation.wind_kph;
-		crtTmp.text = observation.temperature_string;
-		flsLk.text = observation.feelslike_string;
-		frCst1.text = forecast.txt_forecast.forecastday[0].title;
+		locationZip.text = "Zip Code: " + location.zip;
+		elevation.text = "Elevation: " + observation.display_location.elevation;
+		weather.text = "Weather: " + observation.weather;
+		humidity.text = "Humidity: " + observation.relative_humidity;
+		windDir.text = "Wind Direction: " + observation.wind_dir;
+		windMph.text = "MPH: " + observation.wind_mph;
+		windKph.text = "KPH: " + observation.wind_kph;
+		crtTmp.text = "Current Temperature: " + observation.temperature_string;
+		flsLk.text = "Feels Like: " + observation.feelslike_string;
+		frCst1.text = forecast.txt_forecast.forecastday[0].title + " Forecast";
 		frCst1Txt.text = forecast.txt_forecast.forecastday[0].fcttext;
-		frCst2.text = forecast.txt_forecast.forecastday[1].title;
+		frCst2.text = forecast.txt_forecast.forecastday[1].title + " Forecast";
 		frCst2Txt.text = forecast.txt_forecast.forecastday[1].fcttext;
 		time.text = observation.local_time_rfc822;
 	} else {
-		alert("No weather data exists in Application cache. Please try again.");
-		Ti.API.info("Failure!!!!");
+		alert("No weather data exists in Application cache. If error persists, check your network settings and wait a moment before trying again.");
 	}
 };
 
@@ -62,12 +61,12 @@ windDir.text = "Wind Direction: E";
 
 var windMph = Ti.UI.createLabel(lblFormat);
 windMph.top = windDir.top;
-windMph.left = "40%";
+windMph.left = "50%";
 windMph.text = "88MPH";
 
 var windKph = Ti.UI.createLabel(lblFormat);
 windKph.top = windMph.top;
-windKph.left = "60%";
+windKph.left = "70%";
 windKph.text = "88KPH";
 
 var crtTmp = Ti.UI.createLabel(lblFormat);
@@ -115,6 +114,5 @@ mainWin.add(frCst1Txt);
 mainWin.add(frCst2);
 mainWin.add(frCst2Txt);
 mainWin.add(time);
-runWeather();
 exports.rnWthr = runWeather;
 
