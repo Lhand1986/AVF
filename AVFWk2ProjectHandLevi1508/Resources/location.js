@@ -1,11 +1,35 @@
 var osname = Ti.Platform.osname;
 var online = Ti.Network.online;
 var location = Ti.Geolocation.locationServicesEnabled;
-
-Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
-
 /*
-Ti.API.info(Ti.App.Properties.getstring("weatherJSON"));
+var create = function(jsonObject) {
+	var db = Ti.Database.open("weatherDb");
+	db.execute("CREATE TABLE IF NOT EXISTS weatherDb (id INTEGER PRIMARY KEY, jsonObject TEXT)");
+	db.execute("DELETE FROM weatherDb");
+	db.execute("INSERT INTO weatherDb (jsonObject) VALUES (?)", jsonObject);
+	db.close();
+	//var tblData = [];
+};
+
+var tblData = [];
+var read = function(){
+	var db = Ti.Database.open("weatherDb");
+	db.execute("CREATE TABLE IF NOT EXISTS weatherDb (id INTEGER PRIMARY KEY, jsonObject TEXT)");
+	var dbRows = db.execute("SELECT id, jsonObject FROM weatherDb");
+	while (dbRows.isValidRow()) {
+		tblData.push({
+			id: dbRows.fieldByName("id"),
+			jsonObject: dbRows.fieldByName("jsonObject")
+		});
+		Ti.API.info(tblData[0], tblData[1], tblData[2]);
+		dbRows.next();
+	}
+	db.execute("DELETE FROM weatherDb");
+	dbRows.close();
+	db.close();
+};
+*/
+Ti.API.info(JSON.parse(Ti.App.Properties.getString("weatherJSON")));
 
 if(osname === "android"){
 	Ti.Geolocation.Android.manualMode = true;
@@ -37,17 +61,28 @@ latLng(function(latitude, longitude) {
 	var lng = longitude;
 });
 
+//This section is loading the URL and exporting it to the app properties
+
+
 //var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/" + lat + "," + lng + ".json";
 var url = "http://api.wunderground.com/api/1f29607d2437a0f5/geolookup/conditions/forecast/q/37.78583526611328,-122.40641784667969.json";
 var getData = Ti.Network.createHTTPClient();
-
 getData.onload = function(e) {
+	/*var json = JSON.parse(this.responseText);
+	var forecast = JSON.stringify(json.forecast);
+	var location = JSON.stringify(json.location);
+	var current = JSON.stringify(json.current_observation);
+	create(forecast);
+	create(location);
+	create(current);
+	Ti.API.info(location);*/
 	Ti.App.Properties.setString("weatherJSON", this.responseText);
-	//var retrieve = Ti.App.Properties.getString("weatherJSON");
-	//Ti.API.info(JSON.parse(retrieve));
+	
 };
 getData.open("GET", url);
 getData.send();
+/*
+read();
 /*
 if(online === true && location === true) {
 	Ti.Geolocation.getCurrentPosition(function(e){

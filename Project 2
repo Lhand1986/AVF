@@ -1,0 +1,19 @@
+Project 2
+
+API Datapoints
+
+1 location.city
+2 location.zip
+3 current_observation.display_location.elevation
+4 observation_location.local_time_rfc822
+5 observation_location.weather
+6 observation_location.relative_humidity
+7 observation_location.wind_dir
+8 observation_location.wind_mph
+9 observation_location.wind_kph
+10 observation_location.temperature_string
+11 observation_location.feelslike_string
+12 forecast.txt_forecast.forecastday[0].title
+13 forecast.txt_forecast.forecastday[0].fccttext
+14 forecast.txt_forecast.forecastday[1].title
+15 forecast.txt_forecast.forecastday[1].fccttext
