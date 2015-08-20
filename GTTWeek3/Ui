@@ -1,0 +1,30 @@
+Ui
+
+var uiFn = function(coordInfo){
+	console.log("uiFn");
+	console.log(coordInfo);
+
+	var win = Ti.UI.createWindow({
+	layout : "vertical"
+	});
+
+	win.add(Ti.UI.createLabel({
+		text : coordInfo.lat,
+		color : "#fff",
+		top : 50
+	}));
+	win.add(Ti.UI.createLabel({
+		text : coordInfo.lng,
+		color : "#fff",
+		top : 20
+	}));
+	win.add(Ti.UI.createLabel({
+		text : coordInfo.url,
+		color : "#fff",
+		top : 20
+	}));
+	win.open();
+
+};
+
+exports.uiFn = uiFn;

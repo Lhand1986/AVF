@@ -1,0 +1,21 @@
+Two
+
+var pg2Fn = function(a, b){
+	console.log("pg2Fn");
+	console.log(a);
+	console.log(b);
+
+	var url = "api.wunderground.com/api/numbers/geolookup/conditions/q/" + a + "," + b + ".json";
+
+	var coordInfo = {
+		lat : a,
+		lng : b,
+		url : url
+	};
+
+	var ui = require("ui");
+	ui.uiFn(coordInfo);
+
+};
+
+exports.pg2Fn = pg2Fn;

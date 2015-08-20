@@ -152,3 +152,35 @@ db.execute('UPDATE asdTbl SET name=?, desc=? WHERE id=?', ui.formField1.value, u
 // updates EACH COLUMN in the database's table using values from form fields where the ID in the form matches the iD of the database row to update
 db.close();
 
+tblData = {};
+read();
+ui.tabGroup.setActiveTab(ui.tab1);
+ui.button.id = null;
+ui.button.edit = false;
+ui.button.title = "Add Person";
+ui.nameField.value = "";
+ui.descField.value = "";
+win2.title = "Add Person";
+ui.tab2.title = "Add";
+);
+exports.update = update
+
+
+
+
+
+
+
+DELETE
+
+var del = function(id){
+
+var db = Ti.Database.open('nameInfo');
+db.execute('DELETE FROM asdTbl WHERE id=?', id);
+// delete the row from the database's table where the id matches the id of the database row
+db.close();
+etc....
+
+
+
+

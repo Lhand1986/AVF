@@ -1,0 +1,27 @@
+Geo
+
+var pg1Fn = function(){
+	console.log("pg1Fn");
+
+	var pg2 = require('two');
+	
+	if (Ti.Platform.osname === 'android'){
+		Ti.Geolocation.purpose = "This app needs a ham and cheese sandwich in order to get your stuff.";
+		var lat = "number here";
+		var lng = "number here";
+		
+		pg2.pg2Fn(lat, lng);
+
+	} else {
+		Ti.Geolocation.getCurrentPosition(function(e){
+			console.log(e);
+			var lat = e.coords.latitude;
+			var lng = e.coords.longitude;
+			var pg2 = require('two');
+			pg2.pg2Fn(lat, lng);
+		});
+	}
+
+};
+
+exports.pg1Fn = pg1Fn;

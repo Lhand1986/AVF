@@ -1,0 +1,14 @@
+App
+
+Week 3
+
+//app.js
+
+//app launches
+//load page one, get variables
+//pass variables to page two
+//load variables into UI-module
+//Stepping through the different modules like this is preferred
+
+var pg1 = require("geo");
+pg1.pg1Fn();
