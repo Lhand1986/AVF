@@ -1,7 +1,10 @@
-
-
-var uiFn = function(){
-	console.log("uiFn");
+var newChar = function(){
+	console.log("UI New Char");
 };
 
-exports.uiFn = uiFn;
+var savedChar = function(){
+	console.log("UI Saved Char");
+};
+
+exports.newChar = newChar;
+exports.savedChar = savedChar;

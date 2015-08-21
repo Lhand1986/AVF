@@ -1,9 +1,9 @@
-var apiFn = function(){
-	console.log("apiFn");
+var newCharacter = function(){
+	console.log("api New Char");
 	var network = require("network");
 	console.log(network.online);
 	var db = require("db");
 	db.dbFn();
 };
 
-exports.apiFn = apiFn;
+exports.newCharacter = newCharacter;

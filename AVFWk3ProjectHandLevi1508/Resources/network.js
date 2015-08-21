@@ -9,6 +9,18 @@ var networkFn = function(e){
 	console.log(e);
 	console.log("Is Android" + isAndroid);
 	console.log("Is Online" + isOnline);
+	
+	if (e === 0){
+		if (isOnline){
+			var api = require("api");
+			api.newCharacter();
+		} else {
+			alert("Error, need active network connection to pull new data");
+		}
+	} else {
+		var ui = require("ui");
+		ui.savedChar();
+	};
 	/*
 	// var osname = Ti.Platform.osname;
 	// var online = Ti.Network.online;
