@@ -1,24 +1,23 @@
 // var osname = Ti.Platform.osname;
 // var online = Ti.Network.online;
-var isAndroid = (Ti.Platform.osname=='android') ? true : false;
+// var isAndroid = (Ti.Platform.osname=='android') ? true : false;
 var isOnline = Ti.Network.online;
 
 
 var networkFn = function(e){
 	console.log("networkFn");
 	console.log(e);
-	console.log("Is Android" + isAndroid);
+	// console.log("Is Android" + isAndroid);
 	console.log("Is Online" + isOnline);
-	
+	var ui = require("ui");
 	if (e === 0){
 		if (isOnline){
-			var api = require("api");
-			api.newCharacter();
+			var tag = require("tag");
+			tag.newChar();
 		} else {
 			alert("Error, need active network connection to pull new data");
 		}
 	} else {
-		var ui = require("ui");
 		ui.savedChar();
 	};
 	/*
