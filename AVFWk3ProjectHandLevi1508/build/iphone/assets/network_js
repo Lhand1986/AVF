@@ -1,0 +1,1 @@
+var isOnline=Ti.Network.online,networkFn=function(e){if(0===e)if(Ti.Network.online){var a=require("tag");a.newChar()}else alert("Error, need active network connection to pull new data");if(1===e){var r=require("data");r.read()}if(2===e){var r=require("data");r.del()}};exports.networkFn=networkFn;

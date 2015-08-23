@@ -2,11 +2,12 @@ var menuFn = function(){
 	console.log("menuFn");
 	
 	var section = Ti.UI.createTableViewSection({ headerTitle: "Characters" });
-	section.add(Ti.UI.createTableViewRow({title: "New Character"}));
-	section.add(Ti.UI.createTableViewRow({title: "Saved Characters"}));
+	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "New Battle Tag Info"}));
+	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "Saved Characters"}));
+	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "Delete saved data"}));
 	
 	var menuView = Ti.UI.createTableView({
-		backgroundColor: "grey",
+		backgroundColor: "#F2F2F2",
 		width: "90%",
 		height: "95%",
 		data: [section]
@@ -19,8 +20,6 @@ var menuFn = function(){
 		
 		network.networkFn(e.index);
 	});
-	// var network = require("network");
-	// network.networkFn();
 };
 
 

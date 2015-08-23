@@ -18,8 +18,6 @@ var dbFn = function(json){
 	console.log("dbFn");
 	authenticate();
 	console.log(json);
-	//var ui = require("ui");
-	// ui.uiFn();
 };
 
 var save = function(array){

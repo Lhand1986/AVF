@@ -1,12 +1,11 @@
-var tblData = [];
+
 var read = function(){
+	var tblData = [];
 	var db = Ti.Database.open("diablo3Db");
 	db.execute("CREATE TABLE IF NOT EXISTS d3TBL (id INTEGER PRIMARY KEY, name TEXT, charId TEXT, level TEXT, charClass TEXT, seasonal TEXT)");
 	var dbRows = db.execute("SELECT * FROM d3TBL");
-	//var fieldCount;
 	while (dbRows.isValidRow()) {
-		console.log(dbRows.fieldByName("name"), dbRows.fieldByName("charId"));
-		db.execute("DELETE FROM d3TBL WHERE id=?", dbRows.fieldByName("id"));	
+
 		tblData.push({
 			name: dbRows.fieldByName("name"),
 			charId: dbRows.fieldByName("charId"),
@@ -18,10 +17,11 @@ var read = function(){
 	}
 	dbRows.close();
 	db.close();
+	var ui = require("ui");
+	ui.savedChar(tblData);
 };
 
 var save = function(array){
-	//console.log(array);
 	
 	var db = Ti.Database.open("diablo3Db");
 	db.execute("CREATE TABLE IF NOT EXISTS d3TBL (id INTEGER PRIMARY KEY, name TEXT, charId TEXT, level TEXT, charClass TEXT, seasonal TEXT)");
@@ -29,9 +29,19 @@ var save = function(array){
 		db.execute("INSERT INTO d3TBL (charClass, charId, level, name, seasonal) VALUES (?,?,?,?,?)", array[i].charClass, array[i].charId, array[i].level, array[i].name, array[i].seasonal);
 	}
 	db.close();
-	read();
 };
 
-exports.tblData = tblData;
+var del = function(){
+	var db = Ti.Database.open("diablo3Db");
+	db.execute("CREATE TABLE IF NOT EXISTS d3TBL (id INTEGER PRIMARY KEY, name TEXT, charId TEXT, level TEXT, charClass TEXT, seasonal TEXT)");
+	var dbRows = db.execute("SELECT * FROM d3TBL");
+	while (dbRows.isValidRow()) {
+		db.execute("DELETE FROM d3TBL WHERE id=?", dbRows.fieldByName("id"));	
+		dbRows.next();
+	};
+	db.close();
+};
+
+exports.del = del;
 exports.save = save;
 exports.read = read;

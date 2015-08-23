@@ -23,13 +23,13 @@ var getApi = function(battleTag){
 		catch(e){
 			alert("Enter proper battletag format, please.");
 		}
-			// var arrowDb = require("arrowDb");
-			// arrowDb.save(heroesArray);
+			var arrowDb = require("arrowDb");
+			arrowDb.save(heroesArray);
 			var data = require("data");
 			data.save(heroesArray);
 		},
 		onerror : function(){
-			console.log("Error is right here!");
+			alert("There was an error processing your request. Please try again.");
 		},
 		timeout : 5000
 		

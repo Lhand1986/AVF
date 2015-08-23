@@ -1,0 +1,1 @@
+var mainWin=Ti.UI.createWindow({backgroundColor:"#F2F2F2"});if(Ti.Network.online){var arrowDb=require("arrowDb");arrowDb.auth()}mainWin.addEventListener("open",function(){var e=Ti.Media.createSound({url:"sanctuary.mp3",volume:.1,looping:!0,allowBackground:!0});e.play()}),mainWin.open();var menu=require("menu");menu.menuFn();
