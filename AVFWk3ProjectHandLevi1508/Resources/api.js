@@ -8,6 +8,7 @@ var getApi = function(battleTag){
 			var json = JSON.parse(this.responseText);
 			var heroes = json.heroes;
 			var heroesArray = [];
+			try {
 			for (i=0, j=heroes.length; i<j; i++){
 				var heroesData = {
 					name : heroes[i].name,
@@ -18,6 +19,10 @@ var getApi = function(battleTag){
 				};
 				heroesArray.push(heroesData);
 			}
+		}
+		catch(e){
+			alert("Enter proper battletag format, please.");
+		}
 			// var arrowDb = require("arrowDb");
 			// arrowDb.save(heroesArray);
 			var data = require("data");
@@ -27,6 +32,7 @@ var getApi = function(battleTag){
 			console.log("Error is right here!");
 		},
 		timeout : 5000
+		
 	});
 	getData.open("GET", url);
 	getData.send();

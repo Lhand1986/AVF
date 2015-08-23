@@ -33,10 +33,6 @@ var newChar = function(){
 			title: "Enter Battle Tag as \nname-####",
 			style: Ti.UI.iPhone.AlertDialogStyle.PLAIN_TEXT_INPUT
 		});
-		var bDialog = Ti.UI.createAlertDialog({
-			title: "Flerp",
-			style: Ti.UI.iPhone.AlertDialogStyle.PLAIN_TEXT_INPUT
-		});
 		dialog.addEventListener("click", function(e){
 			console.log("e.text " + e.text);
 			battleTag = e.text;

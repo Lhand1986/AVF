@@ -32,5 +32,6 @@ var save = function(array){
 	read();
 };
 
+exports.tblData = tblData;
 exports.save = save;
 exports.read = read;
