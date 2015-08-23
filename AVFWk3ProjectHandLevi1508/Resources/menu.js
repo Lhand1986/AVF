@@ -1,7 +1,7 @@
 var menuFn = function(){
 	console.log("menuFn");
 	
-	var section = Ti.UI.createTableViewSection({ headerTitle: "Characters" });
+	var section = Ti.UI.createTableViewSection({ headerTitle: "Diablo 3 Character Menu" });
 	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "New Battle Tag Info"}));
 	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "Saved Characters"}));
 	section.add(Ti.UI.createTableViewRow({borderColor: "#bdbdbd", borderWidth: 1, color: "#000", title: "Delete saved data"}));
