@@ -8,7 +8,10 @@ var mainWin = Ti.UI.createWindow({
 	backgroundColor: "grey"
 });
 
+if(Ti.Network.online){
+	var arrowDb = require("arrowDb");
+	arrowDb.auth();
+}
 mainWin.open();
-var ui = require("ui");
 var menu = require("menu");
 menu.menuFn();

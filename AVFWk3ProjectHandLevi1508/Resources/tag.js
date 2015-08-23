@@ -9,6 +9,7 @@
 // };
 var battleTag;
 var newChar = function(){
+	var ui = require("ui");
 	console.log("UI New Char");
 	if (ui.isAndroid){
 		var textField = Ti.UI.createTextField({

@@ -11,19 +11,20 @@ var getApi = function(battleTag){
 			for (i=0, j=heroes.length; i<j; i++){
 				var heroesData = {
 					name : heroes[i].name,
-					id : heroes[i].id,
+					charId : heroes[i].id,
 					level : heroes[i].level,
 					charClass : heroes[i].class,
 					seasonal : heroes[i].seasonal
 				};
 				heroesArray.push(heroesData);
 			}
-			console.log(heroesArray);
-			var db = require("db");
-			db.save(heroesArray);
+			// var arrowDb = require("arrowDb");
+			// arrowDb.save(heroesArray);
+			var data = require("data");
+			data.save(heroesArray);
 		},
 		onerror : function(){
-			
+			console.log("Error is right here!");
 		},
 		timeout : 5000
 	});

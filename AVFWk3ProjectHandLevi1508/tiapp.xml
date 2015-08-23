@@ -68,15 +68,15 @@
     <property name="acs-oauth-secret-development" type="string">4BOtoOzWQT2gaYpXRh9jOMMsEVjOWI76</property>
     <property name="acs-oauth-key-development" type="string">q4IWrdwVNBqUvqbs2MNKZ5Uldd4XB8fm</property>
     <property name="acs-api-key-development" type="string">QJh4oK6thiFCeQoBgqkgHKwMHK7hbleS</property>
-    <property name="acs-username-development" type="string">appc_app_user_dev</property>
-    <property name="acs-password-development" type="string">LPc81ywQkX31S34GVS</property>
+    <property name="acs-username-development" type="string">admin</property>
+    <property name="acs-password-development" type="string">1234</property>
     <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
     <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
     <property name="acs-oauth-secret-production" type="string">ulU3LzcGROy6y84HPCxfBmcMqPHJF9yz</property>
     <property name="acs-oauth-key-production" type="string">Ke1Lqasela1wl76PiEcHplAlydnmuSnX</property>
     <property name="acs-api-key-production" type="string">UbeXTJtQsJffwqSrkt9vBLVI7JZPDCWy</property>
-    <property name="acs-username-production" type="string">appc_app_user</property>
-    <property name="acs-password-production" type="string">JRHOXWV1yxKeWIOyVx</property>
+    <property name="acs-username-production" type="string">admin</property>
+    <property name="acs-password-production" type="string">1234</property>
     <property name="appc-org-id" type="string">100038814</property>
     <property name="appc-creator-user-id" type="string">6794b9fc-09db-4fb2-be73-7f94b0f96019</property>
 </ti:app>
