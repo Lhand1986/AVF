@@ -23,8 +23,6 @@ var networkFn = function(e){
 				data.del();
 			}
 		});
-		//var data = require("data");
-		//data.del();
 	};
 };
 

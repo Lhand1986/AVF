@@ -13,6 +13,8 @@
 // Shorten sound file, remove loop.
 // Add confirmation message to the delete button.
 
+//The purpose of this application is to collect a Diablo 3 battle tag and save the user's character information so it can be accessed at a later time.
+
 var mainWin = Ti.UI.createWindow({
 	backgroundColor: "#8C001A"
 });

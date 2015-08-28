@@ -19,17 +19,7 @@ var splashFn = function(){
 	
 	splashWin.add(splashText);
 	splashWin.open();
-	
-	// splashWin.addEventListener("open", function(){
-		// var player = Ti.Media.createSound({
-		// url:"sanctuary.mp3",
-		// volume: 0.1,
-		// looping: true,
-		// allowBackground: true
-		// });
-		// player.play();
-	// });
-	
+
 	setTimeout(function(){
 		splashWin.close();
 		var menu = require("menu");
