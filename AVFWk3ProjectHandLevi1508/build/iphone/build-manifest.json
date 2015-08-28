@@ -1,9 +1,8 @@
 {
-	"target": "device",
-	"deployType": "test",
+	"target": "simulator",
+	"deployType": "development",
 	"iosSdkVersion": "8.4",
 	"deviceFamily": "universal",
-	"developerName": "Jennifer McCarrick (5TMP78RMGA)",
 	"iosSdkPath": "/Users/Lhand/Library/Application Support/Titanium/mobilesdk/osx/4.1.0.GA/iphone",
 	"tiCoreHash": "5710cda7b179a3c8391cc94011e308de",
 	"modulesHash": "7fb655db1d51a26b74a2778ab4a02a6b",
@@ -15,11 +14,11 @@
 	"publisher": "Lhand",
 	"url": "http://",
 	"version": "1.0",
-	"description": "",
+	"description": "undefined",
 	"copyright": "2015 by Lhand",
 	"guid": "af9ed326-2990-43b4-9000-fbd80871d603",
-	"skipJSMinification": false,
+	"skipJSMinification": true,
 	"forceCopy": false,
 	"forceCopyAll": false,
-	"encryptJS": true
+	"encryptJS": false
 }

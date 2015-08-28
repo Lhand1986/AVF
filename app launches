@@ -1,0 +1,21 @@
+// app launches
+// check for network
+// authenticate (login through user object) our app with ArrowDB
+// grab api data
+// save custom data object locally
+// save custom data object cloud
+// read local data
+// populate ui from local data
+
+if(Ti.Network.online){
+	var arrowDB = require('arrowDB');
+	arrowDB.authenticate();
+} else {
+	alert('Please enable network');
+	//load from local
+	var data = require("data");
+	data.read();
+}
+
+
+Can use a picture function to make a user icon that shows a picture from your gallery

@@ -7,13 +7,24 @@ var networkFn = function(e){
 			alert("Error, need active network connection to pull new data");
 		};	
 	};
-	if (e === 1) {
+	if (e === 2) {
 		var data = require("data");
 		data.read();
 	};
-	if (e === 2) {
-		var data = require("data");
-		data.del();
+	if (e === 4) {
+			var deleteAlert = Ti.UI.createAlertDialog({
+				title: "This will delete all saved data\n Are you sure?",
+				buttonNames:["Confirm", "Cancel"]
+		});
+		deleteAlert.show();
+		deleteAlert.addEventListener("click", function(e){
+			if(e.index === 0){
+				var data = require("data");
+				data.del();
+			}
+		});
+		//var data = require("data");
+		//data.del();
 	};
 };
 

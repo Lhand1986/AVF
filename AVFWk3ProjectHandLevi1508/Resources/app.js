@@ -5,8 +5,16 @@
 // Update database
 // Build ui
 
+// Program fixes
+// Spread out the buttons, especially the delete button.
+// Make the text larger for selections
+// Incorporate a darker background with lighter text.
+// Modify close button on saved data window
+// Shorten sound file, remove loop.
+// Add confirmation message to the delete button.
+
 var mainWin = Ti.UI.createWindow({
-	backgroundColor: "#F2F2F2"
+	backgroundColor: "#8C001A"
 });
 
 if(Ti.Network.online){
@@ -23,14 +31,14 @@ if(Ti.Network.online){
 
 mainWin.addEventListener("open", function(){
 	var player = Ti.Media.createSound({
-	url:"sanctuary.mp3",
+	url:"identify.wav",
 	volume: 0.1,
-	looping: true,
+	looping: false,
 	allowBackground: true
 	});
 	player.play();
 });
 
 mainWin.open();
-var menu = require("menu");
-menu.menuFn();
+var splash = require("splash");
+splash.splashFn();

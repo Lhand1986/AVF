@@ -5,13 +5,25 @@ var pg2Fn = function(a, b){
 	console.log(a);
 	console.log(b);
 
-	var url = "api.wunderground.com/api/numbers/geolookup/conditions/q/" + a + "," + b + ".json";
+	var url = "https://api.wunderground.com/api/numbers/geolookup/conditions/q/" + a + "," + b + ".json";
 
 	var coordInfo = {
 		lat : a,
 		lng : b,
 		url : url
+
 	};
+	
+	var cityArray= [];
+
+	for (i=0, j=json.location.nearby_weather_stations.airport.station; i<j; i++){
+		cityArray.push(json.location.nearby_weather_stations.airport.station[i].city);
+	}
+	coordINfo.cityArray = cityArray;
+
+	if (json.current.alert){
+		coordInfo.alert = json.current.alert;
+	}
 
 	var ui = require("ui");
 	ui.uiFn(coordInfo);

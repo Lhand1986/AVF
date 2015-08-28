@@ -1,6 +1,6 @@
 Ui
 
-var uiFn = function(coordInfo){
+var uiFn = function(a, b, coordInfo){
 	console.log("uiFn");
 	console.log(coordInfo);
 

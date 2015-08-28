@@ -1,4 +1,3 @@
-
 var read = function(){
 	var tblData = [];
 	var db = Ti.Database.open("diablo3Db");

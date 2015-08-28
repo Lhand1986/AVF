@@ -1,0 +1,107 @@
+App Statement
+
+The purpose of this application is to collect a Diablo 3 battle tag and save the user's character information so it can be accessed at a later time.
+
+Task list:
+
+1. Open the application
+
+2. Select New Battle Tag Info
+
+3. Input battle tag darinian-1398 and hit ok
+
+4. Select Saved Characters
+
+5. Select one of the characters
+
+6. Hit close button in the upper right
+
+7. Press close window button
+
+8. Select delete saved data
+
+9. Select saved characters again
+
+First user
+
+Thought the music was an interesting touch, said he's played Diablo 3 before. Said it could use a better introduction screen, something more interesting. He hit the delete button by accident the first time and had to reinput the information. Other than that, the first run through the application went fine.
+
+Second run through, the user seemed to appreciate the fact that the error message provided some kind of feedback. They were able to retrieve the saved information.
+
+The third run through they were able to navigate the application much more smoothly.
+
+Second user
+
+Didn't know what Diablo 3 was. A little irritated that the music kept playing through the application. Said he didn't see the point of the application, why would you want to save this kind of information. They seemed to be in a rush, and wound up tapping the delete button multiple times, and needing to reinput the information.
+
+Second run through, they didn't really seem to understand what had happened to the program when the error message came up. They hit the delete button again before accessing the saved data.
+
+The user opted not to run through the application a third time.
+
+Third user
+
+Said she thought it was a really cute idea, she's heard of Diablo 3 before, but didn't know what a battle tag was. Did comment that she thought the music was unnecessary. She felt that it would be a more interesting application if instead of just displaying text, that it actually showed pictures. All in all, she thought it was fairly bland, but was able to get through everything fairly easily.
+
+Second run through, she reenabled the location services herself after the error message popped up almost immediately. Seemed to understand what was happening fairly clearly. Suggested that I change the design of the close button on the character information screen.
+
+Changes to be made: shorten the length of the sound file, and remove the loop. Add a splash page that introduces the application. Put space in between the selectable options so people don't accidentally hit the wrong one. Add a confirmation message to the delete button. Also, change the color to the screen and options.
+
+
+Task list:
+
+1. Open the application
+
+2. Select New Battle Tag Info
+
+3. Input battle tag darinian-1398 and hit ok
+
+4. Select Saved Characters
+
+5. Select one of the characters
+
+6. Hit close button in the upper right
+
+7. Press close window button
+
+8. Select delete saved data
+
+9. Select saved characters again
+
+
+1. Open the application
+
+2. Select New Battle Tag Info
+
+3. Input battle tag darinian-1398 and hit ok
+
+4. Select Saved Characters
+
+5. Select one of the characters
+
+6. Hit close button in the upper right
+
+7. Press close window button
+
+8. Select delete saved data
+
+9. Select saved characters again
+
+
+
+1. Open the application
+
+2. Select New Battle Tag Info
+
+3. Input battle tag darinian-1398 and hit ok
+
+4. Select Saved Characters
+
+5. Select one of the characters
+
+6. Hit close button in the upper right
+
+7. Press close window button
+
+8. Select delete saved data
+
+9. Select saved characters again
