@@ -1,7 +1,6 @@
 var splashFn = function(){
 	var splashWin = Ti.UI.createWindow({
 		backgroundColor: "grey",
-		exitOnClose: true
 	});
 	var splashText = Ti.UI.createLabel({
 		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -19,11 +18,14 @@ var splashFn = function(){
 	
 	splashWin.add(splashText);
 	splashWin.open();
-
-	setTimeout(function(){
-		splashWin.close();
+	
+	splashWin.addEventListener("close", function(){
 		var menu = require("menu");
 		menu.menuFn();
+	});
+
+	setTimeout(function(){
+		splashWin.close();		
 	}, 2000);
 };
 

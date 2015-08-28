@@ -34,13 +34,14 @@ if(Ti.Network.online){
 mainWin.addEventListener("open", function(){
 	var player = Ti.Media.createSound({
 	url:"identify.wav",
-	volume: 0.1,
+	volume: 0.7,
 	looping: false,
 	allowBackground: true
 	});
 	player.play();
+	var splash = require("splash");
+	splash.splashFn();
 });
 
 mainWin.open();
-var splash = require("splash");
-splash.splashFn();
+
