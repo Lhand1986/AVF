@@ -39,7 +39,7 @@ var savedChar = function(data){;
 	});
 	if (Ti.Platform.osname != "android"){
 		menuView.top = 70;
-	};
+	}
 	var exitMain= Ti.UI.createView({
 		bottom: 40,
 		height: 40,
